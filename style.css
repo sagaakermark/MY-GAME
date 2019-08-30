@@ -1,9 +1,9 @@
-.startPage {
+/* .startPage {
     width: 900px;
     height: 900px;
     position: absolute;
     background-color: black;
-}
+} */
 
 .startButton {
     background-color: rgb(34, 157, 34);
@@ -11,7 +11,7 @@
     width: 400px;
     padding: 50px;
     position: absolute;
-    left: 18%;
+    left: 36%;
     top: 45%;
     background-position: center;
     border: 10px solid white;
@@ -19,4 +19,9 @@
     font-size: 30px;
     text-align: center;
 
+}
+
+body {
+    display: flex;
+    justify-content: center;
 }

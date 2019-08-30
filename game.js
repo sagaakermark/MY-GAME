@@ -58,6 +58,7 @@ class Game {
                 let randomIndex = Math.floor(Math.random() * carArray.length)
                 let newCar = new Car(i * random(250, 300) + random(100, 250), -200, carArray[randomIndex]);
                 newCar.setup();
+                roadSound.play();
                 this.cars.push(newCar);
             }
 
