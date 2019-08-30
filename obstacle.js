@@ -3,7 +3,7 @@ class Car {
         this.x = x;
         this.y = y;
         this.animation = animation;
-        this.velocity = 4;
+        this.velocity = 5.5;
     }
 
     setup() {
@@ -11,12 +11,13 @@ class Car {
         this.sprite.addAnimation("drive", this.animation);
         this.sprite.scale = 1;
         this.sprite.mirrorY(-1);
+        // this.sprite.debug = true
         this.sprite.setCollider(
             "rectangle",
             0,
             0,
-            this.sprite.width / 500,
-            this.sprite.height / 2
+            this.sprite.width / 2.5,
+            this.sprite.height / 1.3
         );
 
     }
@@ -38,6 +39,7 @@ class Obstacle {
         this.sprite = createSprite(this.x, this.y)
         this.sprite.addAnimation("walk", obstacleImg)
         this.sprite.scale = 0.5
+        //this.sprite.debug = true
         this.sprite.setCollider("rectangle"),
             0,
             0,

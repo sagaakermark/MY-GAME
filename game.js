@@ -1,14 +1,5 @@
 class Game {
 
-    // stop loop after collision with car
-    // create game over text
-    // space between cars 
-    // go between cars without crash
-    // sounds
-    // replay game
-    // game over
-    // winning
-
     constructor() {
         this.background = new Background();
         this.player = new Player(450, 450);
@@ -17,7 +8,8 @@ class Game {
         this.obstacles = [];
         this.explosions = [];
         this.point = 0;
-        //this.score = 0;
+        this.gameOn = false;
+        this.gameOver = false;
 
     }
     preload() {
@@ -30,25 +22,44 @@ class Game {
     }
 
     draw() {
+
+
         this.background.draw();
         this.player.draw();
         drawSprites()
 
+        if (this.point >= 10) {
+            fill("white");
+            textSize(60);
+            text("CONGRATS, YOU WIN!!", 130, 350);
+            this.cars.forEach(car => car.sprite.remove())
+            this.obstacles.forEach(oldLady => oldLady.sprite.remove())
+            this.gameOn = false
+
+        }
+
+        if (this.gameOver == true) {
+            fill("white");
+            textSize(50);
+            let gameEnd = text("GAME OVER", 305, 320)
+            text("Press SPACE to restart", 200, 450)
+
+        }
+
+
+        if (this.gameOn === false || this.gameOver == true) return;
+
+
 
         // car
-        if (frameCount % 500 === 0) {
+        if (frameCount % 150 === 0) {
             for (let i = 0; i < 3; i++) {
                 let randomIndex = Math.floor(Math.random() * carArray.length)
-                let newCar = new Car(i * 200 + random(100, 500), -200, carArray[randomIndex]);
+                let newCar = new Car(i * random(250, 300) + random(100, 250), -200, carArray[randomIndex]);
                 newCar.setup();
                 this.cars.push(newCar);
             }
 
-            /* carArray.forEach((animation, i) => {
-                if (Math.random() < 0.5) {
-                    
-                }
-            }); */
         }
         this.cars.forEach(car => car.draw());
 
@@ -57,24 +68,28 @@ class Game {
             this.player.sprite.collide(car.sprite, () => {
                 car.sprite.remove();
                 this.cars.splice(i, 1);
-
+                this.gameOver = true;
+                explosionSound.play();
                 let explode = new Explosion(
                     this.player.sprite.position.x,
                     this.player.sprite.position.y - 159
                 );
-                //if (this.collisionCeck(car, this.player)) {
+
                 setTimeout(() => {
                     noLoop();
 
                 }, 500)
 
-                //}
+
+
+
                 explode.setup();
 
             });
         });
 
         this.explosions.forEach(explosion => explosion.draw());
+
 
 
         // lady
@@ -99,14 +114,12 @@ class Game {
         this.obstacles.forEach((obstacle, i) => {
             this.player.sprite.collide(obstacle.sprite, () => {
                 obstacle.sprite.remove();
+                oldLadySound.play();
+                hittingSound.play();
                 this.point++
                 this.obstacles.splice(i, 1);
 
-                if (point >= 1) {
-                    fill("black");
-                    textSize(50);
-                    text("YOU WIN, CONGRATS!", 250, 300);
-                }
+
 
                 let explode = new Explosion(
                     this.player.sprite.position.x,
@@ -124,17 +137,11 @@ class Game {
         textSize(30);
         //textAlign(RIGHT, BOTTOM);
         text(`Score:${this.point} `, 50, 50);
+
         //textFont();
 
 
 
-        //     function drawScore() {
-        //        fill("blue");
-        //         rect(this.x, this.y, this.width, this.height);
-        //            textSize(16);
-        //            textAlign(RIGHT, BOTTOM);
-        //            text("Score: ", 0, 0)
-        //   }
 
     }
 }

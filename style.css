@@ -1,0 +1,22 @@
+.startPage {
+    width: 900px;
+    height: 900px;
+    position: absolute;
+    background-color: black;
+}
+
+.startButton {
+    background-color: rgb(34, 157, 34);
+    height: 250px;
+    width: 400px;
+    padding: 50px;
+    position: absolute;
+    left: 18%;
+    top: 45%;
+    background-position: center;
+    border: 10px solid white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 30px;
+    text-align: center;
+
+}

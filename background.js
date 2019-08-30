@@ -10,7 +10,7 @@ class Background {
     }
     draw() {
         // image(bgRoad, 0, 0, 800, 800)
-        this.yRoad = this.yRoad + 8;
+        this.yRoad = this.yRoad + 10;
         if (this.yRoad > height) {
             this.yRoad = 0;
 

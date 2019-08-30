@@ -7,14 +7,20 @@ let carArray;
 let obstacleImg;
 let explosionImg;
 let explosionAnimation;
-//let policeSiren;
-//let explosionSound;
+let policeSiren;
+let explosionSound;
+let oldLadySound;
+let roadSound;
+let hittingSound;
 
 function preload() {
 
 
     policeSiren = loadSound("./images/sounds/PoliceSiren.mp3");
-    // explosionSound = loadSound("./images/sounds/zapsplat_explosion_designed_big_distorted_fire_backdraft_002_31082.mp3");
+    explosionSound = loadSound("./images/sounds/explosion.mp3");
+    oldLadySound = loadSound("./images/sounds/aaj_0195_FmlScrm3SFX.mp3");
+    roadSound = loadSound("./images/sounds/car+driveby2.mp3");
+    hittingSound = loadSound("./images/sounds/zapsplat_human_body_slam_against_surface_004_31983.mp3");
 
     carArray = [
         "./images/Ambulance.png",

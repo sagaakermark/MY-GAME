@@ -10,16 +10,15 @@ class Player {
         this.sprite = createSprite(this.x, this.y, 30, 30)
         this.sprite.addAnimation("drive", playerAnimation)
         this.sprite.size = 3;
-        this.sprite.setCollider("rectangle"),
+        //this.sprite.debug = true
+        this.sprite.setCollider(
+            "rectangle",
             0,
             0,
-            this.sprite.width / 2,
-            this.sprite.height / 2
-        //this.score = createDiv('Score: ')
-        //this.score.position(RIGHT, BOTTOM)//(width / 2, height / 2)
-
-
-
+            this.sprite.width / 3,
+            this.sprite.height / 1.3
+        );
+       
 
     }
 
@@ -43,13 +42,13 @@ class Player {
     }
 
     moveDown() {
-        this.sprite.position.y += 5;
+        this.sprite.position.y += 6;
     }
     moveLeft() {
-        this.sprite.position.x -= 5;
+        this.sprite.position.x -= 6;
     }
     moveRight() {
-        this.sprite.position.x += 5;
+        this.sprite.position.x += 6;
     }
 }
 //this.sprite.position.x = mouseX;
