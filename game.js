@@ -43,6 +43,7 @@ class Game {
             textSize(50);
             let gameEnd = text("GAME OVER", 305, 320)
             text("Press SPACE to restart", 200, 450)
+            policeSiren.pause()
 
         }
 

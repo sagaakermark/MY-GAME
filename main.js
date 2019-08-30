@@ -5,7 +5,7 @@ function setup() {
     canvas.parent("startPage")
     game.setup()
     roadSound.play();
-    //policeSiren.play();
+    policeSiren.play();
 }
 
 document.querySelector(".startButton").onclick = function () {

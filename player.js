@@ -18,7 +18,7 @@ class Player {
             this.sprite.width / 3,
             this.sprite.height / 1.3
         );
-       
+
 
     }
 
@@ -42,13 +42,13 @@ class Player {
     }
 
     moveDown() {
-        this.sprite.position.y += 6;
+        this.sprite.position.y += 6.5;
     }
     moveLeft() {
-        this.sprite.position.x -= 6;
+        this.sprite.position.x -= 6.5;
     }
     moveRight() {
-        this.sprite.position.x += 6;
+        this.sprite.position.x += 6.5;
     }
 }
 //this.sprite.position.x = mouseX;
